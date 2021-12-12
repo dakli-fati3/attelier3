@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class Shape //la classe de base
+{
+protected:// spécificateurs d'acces protegees pour pouvoir de la classe derive a l'acceder
+  float largeur, longeur;
+public:// acceder a l'exeterieur de la classe
+  Shape(float x, float y)
+  {
+    largeur = x;
+    longeur= y;
+  }
+};
+class Rectangle: public Shape // classe Rectangle dorevee
+{
+public: // acceder a l'exeterieur de la classe
+  Rectangle(float x, float y) : Shape(x, y){} // concstructeur de class dirivee  heritee les parametres x et y
+  float area() // fonction calcule l'aire d'un rectangle
+  {
+    return (largeur * longeur);
+  }
+};
+class Triangle: public Shape // class Triangle dirivee
+{
+public:
+  Triangle(float x, float y) : Shape(x, y) {} // concstructeur de class dirivee  heritee les parametres x et y
+  float area() // fonction calcule l'aire d'un triangle
+  {
+    return (largeur* longeur / 2);
+  }
+};
+int main (){
+  Rectangle rectangle(2,3);// l'objet rectangle du classe Rectangle
+  Triangle triangle(2,3);// l'objet triangle du class Triangle
+  cout <<"l'aire de la zone de shape() du rectangle est :\n"<< rectangle.area() << endl;   //afficher l'aire d'objet rectangle 2*3
+  cout   <<"l'aire de la zone de shape() du triangle est :\n" << triangle.area() << endl;    //afficher l'aire d'objet triangle 2*3/2
+  return 0;
+}
