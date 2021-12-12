@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+class cont {
+static  int CONT ;
+public:
+ void apel(){
+
+ CONT++ ;
+ }
+ int static nmbr(){
+
+cout<< "le nombre d'appel est :" <<  CONT << endl;
+
+}
+
+};
+  int cont::CONT=0;
+int main()
+{   cont A ,G,J;
+A.apel();
+G.apel();
+J.apel();
+cont::nmbr();
+
+    return 0;
+}
+#include <iostream>
+
+using namespace std;
+class cont {
+static  int CONT ;
+public:
+ void apel(){
+
+ CONT++ ;
+ }
+ int static nmbr(){
+
+cout<< "le nombre d'appel est :" <<  CONT << endl;
+
+}
+
+};
+  int cont::CONT=0;
+int main()
+{   cont A ,G,J;
+A.apel();
+G.apel();
+J.apel();
+cont::nmbr();
+
+    return 0;
+}
