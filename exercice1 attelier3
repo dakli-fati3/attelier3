@@ -1,0 +1,28 @@
+#include <iostream>
+  using namespace std ;
+
+class Myclass{
+    int a;
+    int b; // la classe de base
+   public : // specificateur public
+   Myclass();  // constructeur
+   ~Myclass(); // distructeur
+   };
+  Myclass::~Myclass(){ // definir le distructeur pour verifier
+      cout<<"distructeur :" << endl;
+   cout<<"entrer un nembre a :" << endl;
+   cin >> a ;
+   std ::cout <<"la valeur de a :" << a <<std::endl;};
+   Myclass::Myclass(){  // definir le constructeur pour verifier
+        cout<<"constructeur :" << endl;
+    cout<< "entrer un nembre b:" << endl;
+     cin >> b ;
+   std::cout<< "la valeur de b :" <<b<< std::endl;};
+
+
+
+int main()
+{   Myclass A; // deffinir un objet de la class Myclass
+
+
+}
