@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iostream>
+#include <cstring>
+using namespace std;
+class Animal// declaration  class animal
+
+{
+    protected: // specificateur proteger pour que la class direvee l'utiliser
+     int age;char name[10];
+    public:
+     void set_value( int a , char b[10])
+     {
+        age = a;// affecter a à la variable age
+        strcpy(name,b);// affecter b à le string name
+     }
+
+};
+
+class Zebra:public Animal // class zebra direvee 
+{public:
+
+void information_zebra() // methode affiche les informations
+{cout<< "le zebra s'appel "<<name<<" est "<< age << "ans\n. le zebra est de  Africa. \n";}
+};
+
+class Dolphin: public Animal// classDolphin direvee 
+{public:
+
+void information_dolphin() // methode affiche les informations
+{cout<< "le dolphin s'appel "<<name<< " est "<<age << "ans  \n .le dolphin est de New Zeland.\n";}
+};
+
+int main ()
+{  Zebra N; // declaration d'un objet de class Zebra 
+    Dolphin D;  // declaration d'un objet de class Dolphin
+    char n1[7]= "Non"; // declaration d'une chaine de caracteres n1 et affecter le nom "Non"
+    char n2[7]= "Don";// declaration d'une chaine de caracteres n2 et affecter le nom "Don"
+
+    N.set_value(5,n1); // appel a la fonction set-value pour entrer les informations d'objet N  Puisqu'elle est public
+    D.set_value(2,n2);// appel a la fonction set-value pour entrer les informations d'objet D Puisqu'elle est public
+
+    N.information_zebra() ; //affichage par la methode  information_zebra()
+    D.information_dolphin() ;  //affichage par la methode  information_dolphin()
+
+    return 0;
+}
