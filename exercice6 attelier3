@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+
+class Personne { // declaration du classs base 
+    private : // declaration trois champs privees 
+              string nom; 
+              string prenom;
+             int jours , mois , annee; // pour la date dce naissance 
+    public:
+          Personne(string nom,string prenom, int jours , int mois , int annee) // constructeur parametree pour initialiser les valeurs 
+           {
+            this->nom=nom;
+            this->prenom=prenom;
+            this->jours=jours;
+            this->mois=mois;
+            this->annee=annee;
+           }
+        virtual void afficher()// methode afficher 
+              {
+                cout <<"Nom="<<nom<<" Prenom="<<prenom<<" date de naissance="<<jours<<"/"<<mois<<"/"<<annee<<"" ;
+              }
+};
+
+class Employe:public Personne { // class dirivee de personne 
+
+    protected :
+                float salaire;
+    public :
+             Employe(string nom,string prenom,int jours,int mois, int annee,float salaire) : Personne(nom,prenom,jours, mois, annee) // apeler a la constructeur la classe de base puisque on a un heritage 
+             {
+                this->salaire=salaire;
+             }
+        void afficher()
+        {
+            Personne::afficher();
+            cout <<" Salaire= "<<salaire <<" \n";
+        }
+
+};
+
+class Chef:public Employe{
+    protected :
+                string service;
+    public :
+            Chef(string nom,string prenom,int  jours, int mois , int annee,float salaire,string service) : Employe(nom,prenom,jours, mois, annee,salaire)// apeler a la constructeur la classe de base puisque on a un heritage 
+            {
+                this->service=service;
+            }
+            void afficher()
+        {
+            Personne::afficher();
+            cout <<" Service= "<<service<<"\n ";
+        }
+};
+class directeur:public Chef{
+    protected :
+                string societe;
+    public :
+directeur(string nom,string prenom,int  jours, int mois , int annee,float salaire,string service , string societe) : Chef(nom,prenom,jours, mois, annee,salaire, service)
+            {
+                this->societe=societe;
+            }
+            void afficher() // redefinition de la fonction 
+        {
+            Personne::afficher(); // apeler a la fonction afficher du classe du base personne 
+            cout <<" Societe= "<<societe<<"\n "; // afficher la variable societe
+        }
+};
+
+int main()
+{
+
+
+    cout<<"  personne:\n" ;
+    Personne("N1","P1", 13,12,1987).afficher(); // appeler a la constructeur personne et lui donner des variables et afficher par la fonction afficher 
+    cout<<" \n employe:\n" ;
+    Employe("nassim","dkj",12,6,2000,2000).afficher();
+    cout<<" chef:\n";
+     Chef("nassim","dkj",12,6,2000,2000, "sales").afficher();
+     cout<<" directeur:\n";
+     directeur("nassim","dkj",12,6,2000,2000, "sales" , "societeX").afficher();
+
+
+
+}
+
