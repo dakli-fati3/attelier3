@@ -1,0 +1,46 @@
+#include <iostream>
+  using namespace std ;
+
+class mere { // classe de base
+  public:
+    void display() { // methode display class mere
+    cout << "c'est la class mere \n" ;
+  }
+};
+
+class fille : public mere { // class direveé
+  public:
+    void display() { // methode display class fille
+    cout << "c'est la class fille \n" ;
+  }
+};
+int main ()
+{
+  class mere B ; // declarer un objet du class mere
+  class fille C ;// declarer un objet du class fille
+  C.display(); // appel du fonction display du class mere
+  B.display();// appel du fonction display du class fille
+}
+#include <iostream>
+  using namespace std ;
+
+class mere { // classe de base
+  public:
+    void display() { // methode display
+    cout << "c'est la class mere \n" ;
+  }
+};
+
+class fille : public mere { // class direveé
+  public:
+    void display() { // methode display
+    cout << "c'est la class fille \n" ;
+  }
+};
+int main ()
+{
+  class mere B ; // declarer un objet du class mere
+  class fille C ;// declarer un objet du class fille
+  C.display(); // appel du fonction display du class mere
+  B.display();// appel du fonction display du class fille
+}
